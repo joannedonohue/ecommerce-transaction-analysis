@@ -1,43 +1,85 @@
 # E-Commerce Transaction Analysis
 
-Exploratory data analysis and transformation of a large-scale e-commerce client dataset using Pandas. Surfaces key metrics across product categories, customer segments, and purchasing behavior to inform merchandising and pricing strategy.
+Exploratory data analysis and customer segmentation on a large-scale e-commerce transaction dataset — built with pandas to surface revenue drivers, profit margins, and high-value customer profiles.
 
 ---
 
-## Key Findings
+## Overview
 
-- Analyzed **client_dataset.csv** covering client ID, job, category, subcategory, units purchased, shipping price, line price, and profit
-- Identified top-performing **product categories and subcategories** by revenue and unit volume
-- Calculated **profit margins** across segments and surfaced highest-value customer profiles
-- Validated data transformations to confirm accuracy of derived metrics
+This project performs end-to-end exploratory analysis on an e-commerce client dataset, transforming raw transaction records into actionable business insights. The analysis identifies top-performing product categories, calculates profit margins across customer segments, and validates revenue and cost transformations against known benchmarks — demonstrating production-ready data wrangling practices.
 
 ---
 
-## Tech Stack
+## Dataset
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
-![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white)
-
-- **Core library:** Pandas for data loading, transformation, aggregation, and validation
-- **Analysis:** Group-by aggregations, value counts, summary statistics, derived metric calculation
+| Field | Description |
+|---|---|
+| client_id | Unique customer identifier |
+| job | Client occupation |
+| category | Product category |
+| subcategory | Product subcategory |
+| units_purchased | Order quantity |
+| shipping_price | Shipping cost |
+| line_price | Total line revenue |
+| profit | Net profit per transaction |
 
 ---
 
-## Project Structure
+## Analysis Objectives
 
-```
-├── module_4_challenge.ipynb    # Main analysis notebook
-├── client_dataset.csv          # Source transaction data
-└── README.md
-```
+1. Identify top-performing product categories and subcategories by revenue and unit volume
+2. Calculate profit margins across customer segments
+3. Identify highest-value customer profiles by spend and profit contribution
+4. Validate all data transformations against benchmarks for accuracy
 
 ---
 
 ## Methodology
 
-1. Loaded and explored client transaction dataset — shape, dtypes, summary stats
-2. Transformed raw fields to calculate line revenue, shipping cost, and profit
-3. Identified top 5 clients by units ordered and confirmed order totals
-4. Validated calculations against known benchmarks before surfacing insights
-5. Summarized key metrics for each top client including spend and profit contribution
+1. Load dataset and perform exploratory profiling (shape, dtypes, summary statistics)
+2. Engineer derived fields: line revenue, shipping cost contribution, and profit per transaction
+3. Identify top 5 clients by units ordered
+4. Apply `groupby` aggregations across category, subcategory, and customer dimensions
+5. Validate all calculated fields against known benchmarks
+6. Summarize key metrics for top clients (total spend, profit contribution, order frequency)
+
+---
+
+## Tech Stack
+
+| Component | Tool |
+|---|---|
+| Data analysis | pandas |
+| Aggregation | groupby, value_counts, agg |
+| Validation | Custom benchmark checks |
+| Notebook environment | Jupyter |
+| Language | Python |
+
+---
+
+## Repository Structure
+
+```
+ecommerce-transaction-analysis/
+├── ecommerce_transaction_analysis.ipynb   # Full analysis notebook
+├── client_dataset.csv                     # Source transaction data
+└── README.md
+```
+
+---
+
+## Outcomes
+
+- Identified top product categories and subcategories driving the highest revenue and unit volume
+- Calculated profit margins across customer segments, surfacing the highest-value client profiles by spend and contribution
+- Built a validated data transformation pipeline with benchmark checks ensuring accuracy of all derived metrics
+- Demonstrated production-grade pandas workflows for EDA on large transaction datasets: multi-level groupby, value counts, and summary aggregation
+
+---
+
+## Getting Started
+
+```bash
+pip install pandas jupyter
+jupyter notebook ecommerce_transaction_analysis.ipynb
+```
